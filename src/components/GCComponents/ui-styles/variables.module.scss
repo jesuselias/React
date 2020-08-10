@@ -1,0 +1,320 @@
+$yellow: yellow;
+$bleu: blue;
+$purple: purple;
+$black: #000000;
+$white: #ffffff;
+$greenBtnActive: green;
+$giftGreen: lime;
+$redSwitch: red;
+$borderRadiusBtn: 10px;
+$gray: gray;
+$orange: orange;
+
+$adminBorderRadius: 10px;
+
+$font32: 32px;
+$font28: 28px;
+$font24: 24px;
+$font21: 21px;
+$font18: 18px;
+$font16: 16px;
+$font14: 14px;
+$font12: 12px;
+
+$spacing4: 4px;
+$spacing8: 8px;
+$spacing12: 12px;
+$spacing16: 16px;
+$spacing24: 24px;
+$spacing32: 32px;
+
+@mixin gridCenter {
+  display: grid;
+  justify-items: center;
+}
+
+@mixin headerMenu {
+  background-color: $yellow;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  .menu {
+    height: 50%;
+    margin-left: 4%;
+    cursor: pointer;
+    @include min-device("tablet") {
+      margin-left: 2%;
+    }
+    img {
+      width: 32px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  }
+  .notifications {
+    height: 50%;
+    margin-right: 4%;
+    cursor: pointer;
+    @include min-device("tablet") {
+      margin-right: 2%;
+    }
+    img {
+      object-fit: contain;
+      width: 32px;
+      height: 100%;
+    }
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+@mixin title {
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  padding: 0 4%;
+  line-height: 21px;
+}
+
+@mixin linkSanitize {
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+@mixin backgroundImageSanitize {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin btnContainer {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin btn {
+  border: none;
+  outline: none;
+  border: 2px solid #009a1f;
+  border-radius: $adminBorderRadius;
+  background: $btnGreen;
+  background: linear-gradient(
+    190deg,
+    rgba(0, 178, 36, 1) 0%,
+    rgba(0, 154, 31, 1) 100%
+  );
+  color: $white;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: $font21;
+  text-align: center;
+}
+@mixin btnRed {
+  border: none;
+  outline: none;
+  border: 2px solid #ba0000;
+  border-radius: $adminBorderRadius;
+  background: $btnGreen;
+  background: linear-gradient(
+    190deg,
+    rgba(#eb0000, 1) 0%,
+    rgba(#ba0000, 1) 100%
+  );
+  color: $white;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: $font21;
+  text-align: center;
+}
+
+@mixin form {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-template-columns: 100%;
+  row-gap: 20px;
+  @include min-device("tablet") {
+    grid-template-columns: 20% 60% 20%;
+  }
+  @include min-device("desktop") {
+    grid-template-columns: 30% 40% 30%;
+  }
+}
+
+@mixin input {
+  border: 2px solid $adminBorderInputs;
+  border-radius: $adminBorderRadius;
+  color: $black;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  padding-left: 4%;
+  &::placeholder {
+    color: $adminBorderInputs;
+  }
+}
+
+@mixin inputs {
+  .input {
+    width: 75%;
+    text-align: center;
+    @include min-device("tablet") {
+      grid-column: 2;
+    }
+    input,
+    select {
+      @include input;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 100%;
+      font-size: 21px;
+      background-color: transparent;
+      color: $adminBorderInputs;
+    }
+    input[type="date"] {
+      width: 100%;
+      color: $adminBorderInputs;
+      font-size: 20px;
+      background-color: transparent;
+    }
+    input[type="date"]::before {
+      content: attr(data-placeholder);
+      width: 100%;
+    }
+    input[type="date"]:focus::before,
+    input[type="date"]:valid::before {
+      display: none;
+    }
+    span {
+      color: red;
+      font-size: 8px;
+    }
+    .file {
+      @include input;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dotted $yellow;
+      color: $yellow;
+      height: 100%;
+      background-color: rgba($color: $yellow, $alpha: 0.05);
+      img {
+        width: 21px;
+        height: 19px;
+        margin-right: 4%;
+      }
+    }
+    .filePhoto {
+      visibility: hidden;
+      position: fixed;
+    }
+  }
+}
+
+@mixin checkbox {
+  width: 12px;
+  height: 12px;
+  @include backgroundImageSanitize;
+}
+
+@mixin footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  @include backgroundImageSanitize;
+  height: 105px;
+  background-image: url("/footer.png");
+  @include min-device("tablet") {
+    height: 205px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position-y: top;
+  }
+  .copyRight {
+    font-size: $font12;
+    font-weight: 600;
+    color: $white;
+    margin-bottom: 4%;
+    @include min-device("tablet") {
+      margin-bottom: 1%;
+    }
+  }
+}
+
+@mixin btnEnabledDisabled {
+  .btnLogin {
+    @include btn;
+    width: 100%;
+    @include min-device("tablet") {
+      grid-column: 2;
+    }
+  }
+  .btnSecond {
+    @include btn;
+    background: transparent;
+    color: $grayMedium;
+    width: 100%;
+    font-size: $font16;
+    border: 2px solid $grayMedium;
+    @include min-device("tablet") {
+      grid-column: 2;
+    }
+  }
+  .btnLoginDisabled {
+    @include btn;
+    width: 100%;
+    pointer-events: none;
+    opacity: 0.5;
+    @include min-device("tablet") {
+      grid-column: 2;
+    }
+  }
+}
+
+@mixin btnEnabledDisabledRed {
+  .btnLogin {
+    @include btnRed;
+    width: 100%;
+    margin-top: 2%;
+    @include min-device("tablet") {
+      grid-column: 2;
+    }
+  }
+  .btnSecond {
+    @include btnRed;
+    background: transparent;
+    color: $grayMedium;
+    width: 100%;
+    font-size: $font16;
+    border: 2px solid $grayMedium;
+    @include min-device("tablet") {
+      grid-column: 2;
+    }
+  }
+  .btnLoginDisabled {
+    @include btnRed;
+    width: 100%;
+    margin-top: 2%;
+    pointer-events: none;
+    opacity: 0.5;
+    @include min-device("tablet") {
+      grid-column: 2;
+    }
+  }
+}
+
+@mixin showHide {
+  .show {
+    opacity: 1;
+  }
+  .hide {
+    opacity: 0;
+  }
+}
