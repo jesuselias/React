@@ -1,3 +1,3 @@
 import "./style.scss";
 
-export { Login } from "./login";
+export { LoginHook } from "./login";

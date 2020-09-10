@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.scss';
 // import  Login  from "./components/login/index";
-import Login from './components/login/login';
+import LoginHook from './components/login/loginHook';
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <LoginHook />
     </div>
   );
 }
