@@ -37,23 +37,6 @@
                     font-size: 20px;
                 }
 
-                input {
-                    margin-top: 6px;
-                    min-width: 18em;
-                    height: 37px;
-                    padding: 0px 10px;
-                    font-size: 16px;
-                    font-family: "Open sans", sans-serif;
-                    background-color: white;
-                    border: 0;
-                    border-radius: 4px;
-                    margin-bottom: 31px;
-                    transition: all 250ms ease-in-out;
-                    &:focus {
-                        outline: none;
-                        box-shadow: opx opx 12px 0.8px blue;
-                    }
-                }
             }            
         }
     }   
