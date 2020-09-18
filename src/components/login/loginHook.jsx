@@ -41,7 +41,7 @@ const Title = styled.h1`
   color: #56afc4;
 `;
 
-const LoginHook = () => {
+function LoginHook({onPress = () => {}}){
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = values => console.log(values);
 
@@ -84,7 +84,7 @@ const LoginHook = () => {
             {errors.password && <text style={{color: '#f07171'}}>{ errors.password.message }</text>}
             </div>
             <div className="footer">
-            <Button>Normal</Button>
+            <Button onPress={onPress}>Login</Button>
             </div>
         </div>
     </div>
